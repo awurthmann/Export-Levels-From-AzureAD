@@ -1,6 +1,6 @@
 # Export-Levels-From-AzureAD
 This is the AzureAD version of my Export-Levels-from-Outlook, Export-Levels-from-AD and Export-Levels-from-Workday scripts.
-The purpose of these scripts are to export all accounts and show their relation, or levels, from the CEO.
+The purpose of these scripts are to export all accounts and show their relation, or levels, from the CEO to a CSV.
 Privileged access is NOT needed to run any of the Export-Levels scripts, any user can run them and export all users,
 Export-Levels-from-Outlook uses Outlook API calls, ..from-AD uses the admin tool kit and ..from-AzureAD uses the AzureAD module
 
@@ -23,10 +23,8 @@ Running from a Run or cmd.exe prompt:
 
 	powershell -ExecutionPolicy Bypass -File ".\Export-Levels-From-AzureAD.ps1" <CEO's UserPrincipalName>
 
-## Example Output:
+## Example CSV:
 
 "DisplayName","GivenName","Surname","UserPrincipalName","MailNickName","Mail","CompanyName","JobTitle","Department","ManagerUPN","Level"
-
 "Brenda Washington","Brenda","Washington","bwashington@company.ext","bwashington","brenda.washington@company.ext","Company, Inc.","CEO","Office of CEO",,"0"
-
 "Aaron Wurthmann","Aaron","Wurthmann","awurthmann@company.ext","awurthmann","aaron.wurthmann@company.ext","Company, Inc.","CIO","Information Technology & Security","brenda.washington@company.ext","1"
