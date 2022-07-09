@@ -1,6 +1,6 @@
 # Export-Levels-From-AzureAD
-This is the AzureAD version of my Export-Levels-from-Outlook, Export-Levels-from-AD and Export-Levels-from-Workday scripts
-The purpose of these scripts are to export all accounts and show their relation, or levels, from the CEO
+This is the AzureAD version of my Export-Levels-from-Outlook, Export-Levels-from-AD and Export-Levels-from-Workday scripts.
+The purpose of these scripts are to export all accounts and show their relation, or levels, from the CEO.
 Privileged access is NOT needed to run any of the Export-Levels scripts, any user can run them and export all users,
 Export-Levels-from-Outlook uses Outlook API calls, ..from-AD uses the admin tool kit and ..from-AzureAD uses the AzureAD module
 
