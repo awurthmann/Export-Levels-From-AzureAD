@@ -22,3 +22,11 @@ OR
 Running from a Run or cmd.exe prompt: 
 
 	powershell -ExecutionPolicy Bypass -File ".\Export-Levels-From-AzureAD.ps1" <CEO's UserPrincipalName>
+
+## Example Output:
+
+"DisplayName","GivenName","Surname","UserPrincipalName","MailNickName","Mail","CompanyName","JobTitle","Department","ManagerUPN","Level"
+
+"Brenda Washington","Brenda","Washington","bwashington@company.ext","bwashington","brenda.washington@company.ext","Company, Inc.","CEO","Office of CEO",,"0"
+
+"Aaron Wurthmann","Aaron","Wurthmann","awurthmann@company.ext","awurthmann","aaron.wurthmann@company.ext","Company, Inc.","CIO","Information Technology & Security","brenda.washington@company.ext","1"
