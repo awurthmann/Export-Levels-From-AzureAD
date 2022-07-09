@@ -14,7 +14,10 @@ This script pulls nearly the entirety of your organizations user accounts into m
 
 ## Instructions:
 Running from a PowerShell prompt: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+
 	.\Export-Levels-From-AzureAD.ps1 -UserPrincipalName <CEO's UserPrincipalName>
 OR
+
 Running from a Run or cmd.exe prompt: 
+
 	powershell -ExecutionPolicy Bypass -File ".\Export-Levels-From-AzureAD.ps1" <CEO's UserPrincipalName>
