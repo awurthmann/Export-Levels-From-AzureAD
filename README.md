@@ -10,7 +10,8 @@ This code comes with ABSOLUTELY NO WARRANTY.
 You may redistribute copies of the code under the terms of the GPL v3.
 
 ## Warning:
-This script pulls nearly the entirety of your organizations user accounts into memory. I recommend rebooting or at the very least quitting PowerShell afterward.
+This script pulls nearly the entirety of your organizations user accounts into memory.
+I recommend rebooting or at the very least quitting PowerShell afterward.
 
 ## Instructions:
 Running from a PowerShell prompt: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
