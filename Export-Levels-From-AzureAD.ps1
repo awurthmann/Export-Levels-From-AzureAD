@@ -252,8 +252,15 @@ If ($InfoLog) {
 	Write-Log $InfoLogFile "Running: Get-AzureADUser -All $True -Filter AccountEnabled eq true"
 }
 
-Write-Progress -Activity "Retrieving Enabled Accounts in AzureAD" -status "Running: Get-AzureADUser -All $True -Filter AccountEnabled eq true"
-$EnabledUsers=Get-AzureADUser -All $True -Filter "AccountEnabled eq true" | Select-Object *,@{label="ManagerUPN";expression={(Get-AzureADUserManager -ObjectId $_.ObjectID).UserPrincipalName}} | Select-Object -Property DisplayName,GivenName,Surname,UserPrincipalName,MailNickName,Mail,CompanyName,JobTitle,Department,ManagerUPN
+If (!($EnabledUsers)){
+	Write-Progress -Activity "Retrieving Enabled Accounts in AzureAD" -status "Running: Get-AzureADUser -All $True -Filter AccountEnabled eq true"
+	Get-AzureAdUser -All $True -Filter "AccountEnabled eq true" | 
+	 ForEach { $licensed=$False ; For ($i=0; $i -le ($_.AssignedLicenses | 
+	 Measure).Count ; $i++) { If( [string]::IsNullOrEmpty(  $_.AssignedLicenses[$i].SkuId ) -ne $True) { $licensed=$true } } ; If( $licensed -eq $true) { [array]$EnabledUsers+=$_ | 
+	 Select-Object *,@{label="ManagerUPN";expression={(Get-AzureADUserManager -ObjectId $_.ObjectID).UserPrincipalName}} | Select-Object -Property DisplayName,GivenName,Surname,UserPrincipalName,MailNickName,Mail,CompanyName,JobTitle,Department,ManagerUPN} }
+	#
+	#$EnabledUsers=Get-AzureADUser -All $True -Filter "AccountEnabled eq true" | Select-Object *,@{label="ManagerUPN";expression={(Get-AzureADUserManager -ObjectId $_.ObjectID).UserPrincipalName}} | Select-Object -Property DisplayName,GivenName,Surname,UserPrincipalName,MailNickName,Mail,CompanyName,JobTitle,Department,ManagerUPN
+}
 
 If (($EnabledUsers).Count -gt 1) {
 	$TotalCount=$EnabledUsers.count
